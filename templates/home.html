@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Data Analysis App</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Material Design for Bootstrap</title>
+	<!-- MDB icon -->
+	<link rel="icon" href="{{ url_for('static', filename='css/main.css') }}" type="image/x-icon">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+	<!-- Google Fonts Roboto -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<!-- Material Design Bootstrap -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/mdb.min.css') }}">
+	<!-- Your custom styles (optional) -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+
+<body>
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark indigo">
+
+  <div class="container">
+
+    <a class="navbar-brand py-0" href="#"><i class="fab fa-3x fa-mdb"></i></a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto text-uppercase">
+        <li class="nav-item active">
+          <a class="nav-link font-weight-normal" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+      <!-- Links -->
+      
+      <ul class="nav navbar-nav nav-flex-icons ml-auto">
+        <li class="nav-item"><a href="" class="nav-link waves-effect"><span class="badge red z-depth-1 mr-1"> 2 </span><i id="navbar-static-cart" alt="Cart" class="fas fa-shopping-cart"></i><span class="sr-only"> Cart </span></a></li>
+
+        <li class="nav-item d-none d-xl-inline-block" alt="Support" id="navbar-static-support">
+          <a href="" class="nav-link waves-effect">
+          <i class="fas fa-question-circle"></i><span class="d-none d-xl-inline-block ml-1">Support</span>
+          </a>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false"><i class="fas fa-wrench"></i><span class="d-none d-xl-inline-block ml-1">Tools</span></a>
+          <div class="dropdown-menu dropdown-primary dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    <!-- Collapsible content -->
+
+  </div>
+
+</nav>
+<!--/.Navbar-->
+<br><br>
+
+<div style="text-align: center;">
+<h1>Hello I am Cinmoy Das</h1>
+<h3>This is my Data Analysis Web App</h3>
+<br><br>
+
+<form method="POST" action="/" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <input type="submit" value="Upload">
+</form>
+<br><br>
+<form method="POST" action="/showheader">
+	<input type="submit" value="Show dataset">
+</form>
+<br><br>
+
+<img src="{{ url_for('static', filename= path) }}" width="600">
+
+{% for table in tables %}
+            {{titles[loop.index]}}
+            {{ table|safe }}
+{% endfor %}
+
+
+</div>
+</body>
+</html>
