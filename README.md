@@ -1,1 +1,1 @@
-# omr_grader_flask_webapp
+# Black & white image colorization web app
